@@ -1,12 +1,14 @@
 const express = require("express")
-
+const cors = require("cors")
 
 const database = require("./db")
 
 
 
 const app = express()
+
 app.use(express.json())
+app.use(cors())
 
 //GET /tasks  (ritora tutti i task)
 app.get("/tasks", (req, res) => {
@@ -34,7 +36,7 @@ app.get("/timeslices", (req, res) => {
 //!POST /tasks (crea nuovo task)
 app.post("/tasks", (req, res) => {
     console.log(req.body)
-    res.send()
+    res.send({})
 })
 
 //POST /tasks/:task_id/timeslices (crea un nuovo timeslice nel task :task_id)
